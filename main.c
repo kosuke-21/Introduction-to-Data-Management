@@ -19,6 +19,12 @@ void coinToss() {
         printf("ラウンド %d: %s\n", i + 1, results[i]);
     }
     printf("表: %d, 裏: %d\n", heads, tails);
+
+    if (heads > tails) {
+        printf("You won!\n");
+    } else {
+        printf("You lost!\n");
+    }
 }
 
 int main() {
