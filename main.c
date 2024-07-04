@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 
-void coinToss() {
+void coinToss(char* name) {
     int heads = 0, tails = 0;
     char* results[3];
     srand(time(0));
@@ -21,9 +22,9 @@ void coinToss() {
     printf("表: %d, 裏: %d\n", heads, tails);
 
     if (heads > tails) {
-        printf("You won!\n");
+        printf("%sが勝ちました！\n", name);
     } else {
-        printf("You lost!\n");
+        printf("%sが負けました！\n", name);
     }
 }
 
@@ -31,8 +32,9 @@ int main() {
     char name[50];
     printf("あなたの名前は？\n> ");
     fgets(name, 50, stdin);
+    name[strcspn(name, "\n")] = 0;  // Remove the newline character
     printf("こんにちは、%s!\n", name);
 
-    coinToss();
+    coinToss(name);
     return 0;
 }
