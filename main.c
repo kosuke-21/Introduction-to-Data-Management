@@ -22,6 +22,11 @@ void coinToss() {
 }
 
 int main() {
+    char name[50];
+    printf("あなたの名前は？\n> ");
+    fgets(name, 50, stdin);
+    printf("こんにちは、%s!\n", name);
+
     coinToss();
     return 0;
 }
